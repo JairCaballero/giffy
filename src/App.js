@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { ListOfGifs } from './pages/SearchResults/ListOfGifs'
+import { Route } from 'wouter'
+import Details from './pages/Details/Details';
+import Home from './pages/Home/Home'
+
+// Link -> No recarge la pagina
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="App-content">
+        <div className='Gif-lin'>
+          <Home />
+        </div>
+        <Route path='/gif/:keyword' component={ListOfGifs} />
+        <Route path='/gif/:id' component={Details} />
+      </section>
     </div>
   );
 }
